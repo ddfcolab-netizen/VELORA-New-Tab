@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Velora</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <div class="background-overlay"></div>
+
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="brand">
+            <span class="brand-name">VELORA New Tab</span>
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                class="icon-btn"
+                id="themeBtn"
+                title="تغییر تم" data-i18n-title="themeButtonTitle"
+            >
+                🌙
+            </button>
+
+            <button
+                class="icon-btn"
+                id="settingsBtn"
+                title="تنظیمات" data-i18n-title="settingsButtonTitle"
+            >
+                ⚙️
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+
+        <!-- Clock + Date -->
+
+        <section class="clock-section">
+
+            <div
+                id="clock"
+                class="clock"
+            >
+                00:00
+            </div>
+
+            <div
+                id="date"
+                class="date"
+            >
+                <span data-i18n="loading">در حال بارگذاری...</span>
+            </div>
+
+        </section>
+
+
+        <!-- Search -->
+
+        <section class="search-section">
+
+            <form
+                id="searchForm"
+                class="search-box"
+            >
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="جستجو در گوگل..." data-i18n-placeholder="searchPlaceholder"
+                    autocomplete="off"
+                >
+
+                <button type="submit">
+                    ↵
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Bookmarks -->
+
+        <section
+            class="shortcuts"
+            id="shortcuts"
+        >
+
+            <!-- Default bookmarks -->
+
+            <a
+                href="https://www.google.com"
+                class="shortcut-card"
+                target="_blank"
+            >
+
+                <div class="shortcut-icon google">
+                    G
+                </div>
+
+                <span>
+                    Google
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.youtube.com"
+                class="shortcut-card"
+                target="_blank"
+            >
+
+                <div class="shortcut-icon youtube">
+                    ▶
+                </div>
+
+                <span>
+                    YouTube
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://github.com"
+                class="shortcut-card"
+                target="_blank"
+            >
+
+                <div class="shortcut-icon github">
+                    ◉
+                </div>
+
+                <span>
+                    GitHub
+                </span>
+
+            </a>
+
+
+            <!-- Add Bookmark -->
+
+            <button
+                class="shortcut-card add-shortcut"
+                id="addShortcut"
+            >
+
+                <div class="shortcut-icon">
+                    +
+                </div>
+
+                <span data-i18n="add">افزودن</span>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Weather -->
+
+    <div class="weather-card">
+
+        <div class="weather-top">
+
+            <span
+                id="weatherIcon"
+                class="weather-icon"
+            >
+                🌤️
+            </span>
+
+            <span
+                id="temperature"
+                class="temperature"
+            >
+                --°C
+            </span>
+
+        </div>
+
+        <div
+            id="locationName"
+            class="location"
+        >
+            Baku
+        </div>
+
+        <div
+            id="weatherDescription"
+            class="weather-description"
+        ></div>
+
+    </div>
+
+
+    <!-- Settings -->
+
+    <aside
+        class="settings-panel"
+        id="settingsPanel"
+    >
+
+        <div class="settings-header">
+
+            <h2 data-i18n="settingsTitle">
+                تنظیمات
+            </h2>
+
+            <button id="closeSettings">
+                ×
+            </button>
+
+        </div>
+
+        <!-- Language -->
+
+        <div class="setting-section language-setting">
+
+            <label data-i18n="languageLabel">
+                🌐 زبان
+            </label>
+
+            <div class="language-dropdown" id="languageDropdown">
+                <button
+                    type="button"
+                    class="language-trigger"
+                    id="languageTrigger"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                >
+                    <span id="selectedLanguageFlag">🇮🇷</span>
+                    <span id="selectedLanguageName">فارسی</span>
+                    <span class="language-chevron">⌄</span>
+                </button>
+
+                <div class="language-menu" id="languageMenu" role="listbox">
+                    <button type="button" class="language-option active" data-language="fa" role="option">
+                        <span>🇮🇷</span><span>فارسی</span><span class="language-check">✓</span>
+                    </button>
+                    <button type="button" class="language-option" data-language="en" role="option">
+                        <span>🇬🇧</span><span>English</span><span class="language-check">✓</span>
+                    </button>
+                    <button type="button" class="language-option" data-language="tr" role="option">
+                        <span>🇹🇷</span><span>Türkçe</span><span class="language-check">✓</span>
+                    </button>
+                    <button type="button" class="language-option" data-language="az" role="option">
+                        <span>🇦🇿</span><span>Azərbaycanca</span><span class="language-check">✓</span>
+                    </button>
+                    <button type="button" class="language-option" data-language="ar" role="option">
+                        <span>🇸🇦</span><span>العربية</span><span class="language-check">✓</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Theme -->
+
+        <div class="setting-item">
+
+            <div>
+
+                <strong>
+                    <strong data-i18n="darkMode">حالت تاریک</strong>
+                </strong>
+
+                <small>
+                    <span data-i18n="themeDescription">تغییر ظاهر صفحه</span>
+                </small>
+
+            </div>
+
+            <button
+                class="toggle active"
+                id="themeToggle"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Location -->
+
+        <div class="setting-section">
+
+            <label>
+                📍 <span data-i18n="locationLabel">موقعیت مکانی</span>
+            </label>
+
+            <div class="location-input">
+
+                <input
+                    id="locationInput"
+                    type="text"
+                    placeholder="مثلاً Baku"
+                >
+
+                <button id="saveLocation">
+                    <span data-i18n="save">ذخیره</span>
+                </button>
+
+            </div>
+
+            <div><span data-i18n="locationHint">باید به انگلیسی بنویسید!</span></div>
+
+        </div>
+
+
+        <!-- Background -->
+
+        <div class="setting-section">
+
+            <label>
+                🎨 <span data-i18n="backgroundLabel">پس‌زمینه</span>
+            </label>
+
+            <div class="background-options">
+
+                <button
+                    class="bg-option active"
+                    data-bg="default"
+                >
+                    1
+                </button>
+
+                <button
+                    class="bg-option"
+                    data-bg="purple"
+                >
+                    2
+                </button>
+
+                <button
+                    class="bg-option"
+                    data-bg="blue"
+                >
+                    3
+                </button>
+
+                <button
+                    class="bg-option"
+                    data-bg="red"
+                >
+                    4
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Performance Mode -->
+
+        <div class="setting-section performance-setting">
+            <label>⚡ <span data-i18n="performanceLabel">حالت عملکرد</span></label>
+            <div class="performance-options" id="performanceOptions">
+                <button type="button" class="performance-option" id="ecoMode" data-performance="eco" aria-pressed="false">
+                    <span class="performance-option-icon">🍃</span>
+                    <span class="performance-option-text">
+                        <strong data-i18n="ecoMode">کم‌مصرف</strong>
+                        <small data-i18n="ecoModeHint">افکت‌های سنگین خاموش؛ مناسب سیستم‌های ضعیف</small>
+                    </span>
+                    <span class="performance-check">✓</span>
+                </button>
+                <button type="button" class="performance-option active" id="fullMode" data-performance="full" aria-pressed="true">
+                    <span class="performance-option-icon">✨</span>
+                    <span class="performance-option-text">
+                        <strong data-i18n="fullMode">کامل</strong>
+                        <small data-i18n="fullModeHint">تمام جلوه‌های بصری Velora فعال</small>
+                    </span>
+                    <span class="performance-check">✓</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Reset -->
+
+        <button
+            class="reset-btn"
+            id="resetSettings"
+        >
+            <span data-i18n="resetSettings">بازنشانی تنظیمات</span>
+        </button>
+
+    </aside>
+
+
+    <!-- Add Bookmark Modal -->
+
+    <div
+        class="modal-overlay"
+        id="bookmarkModal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2>
+                    <span data-i18n="add">افزودن</span> بوکمارک
+                </h2>
+
+                <button id="closeModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <input
+                id="bookmarkName"
+                type="text"
+                placeholder="نام سایت"
+            >
+
+
+            <input
+                id="bookmarkUrl"
+                type="url"
+                placeholder="https://example.com"
+            >
+
+
+            <div class="modal-actions">
+
+                <button
+                    class="cancel-btn"
+                    id="cancelBookmark"
+                >
+                    <span data-i18n="cancel">لغو</span>
+                </button>
+
+                <button
+                    class="save-btn"
+                    id="saveBookmark"
+                >
+                    <span data-i18n="add">افزودن</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Toast -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+        <span data-i18n="save">ذخیره</span> شد
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

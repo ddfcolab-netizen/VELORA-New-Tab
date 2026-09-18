@@ -1,0 +1,1755 @@
+@font-face {
+    font-family: Vazir;
+    src: url('Vazir-Regular.woff2');
+    src: url('Vazir-Regular.woff2') format('woff2'),
+         url('Vazir-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --bg: #090b10;
+
+    --text: #ffffff;
+
+    --secondary: #9298a8;
+
+    --glass: rgba(255, 255, 255, 0.055);
+
+    --glass-hover: rgba(255, 255, 255, 0.10);
+
+    --border: rgba(255, 255, 255, 0.09);
+
+    --accent: #6877ff;
+
+    --danger: #ff5d6c;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* =========================
+   Body
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        "Vazir",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease;
+
+}
+
+
+/* =========================
+   Background
+========================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(91, 105, 255, 0.16),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(139, 76, 255, 0.10),
+            transparent 30%
+        ),
+
+        #090b10;
+
+    transition:
+        background 0.6s ease;
+
+}
+
+
+.background-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,0.015),
+            transparent 50%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+
+    padding: 28px 35px;
+
+}
+
+.brand {
+    position: absolute;
+    left: 30px;
+    top: 26px;
+    z-index: 10;
+}
+
+.brand-name {
+    font-family: "Vazir", Tahoma, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--text);
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transition: 0.3s ease;
+}
+
+.brand-name:hover {
+    opacity: 1;
+    letter-spacing: 5px;
+}
+
+.header-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.icon-btn {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    background: var(--glass);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.25s,
+        background 0.25s;
+
+}
+
+
+.icon-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--glass-hover);
+
+}
+
+
+/* =========================
+   Main
+========================= */
+
+.main {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding-bottom: 50px;
+
+}
+
+
+/* =========================
+   Clock
+========================= */
+
+.clock-section {
+
+    text-align: center;
+
+    animation:
+        fadeUp 0.8s ease;
+
+}
+
+
+.clock {
+
+    font-size:
+        clamp(70px, 9vw, 125px);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    letter-spacing: -6px;
+
+    text-shadow:
+        0 15px 45px rgba(0,0,0,0.45);
+
+}
+
+
+.date {
+
+    margin-top: 16px;
+
+    font-size: 17px;
+
+    color: var(--secondary);
+
+}
+
+
+/* =========================
+   Search
+========================= */
+
+.search-section {
+
+    width: min(650px, 90%);
+
+    margin-top: 38px;
+
+    animation:
+        fadeUp 0.9s ease;
+
+}
+
+
+.search-box {
+
+    width: 100%;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 20px;
+
+    border-radius: 19px;
+
+    border: 1px solid var(--border);
+
+    background: var(--glass);
+
+    backdrop-filter: blur(22px);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        0.3s;
+
+}
+
+
+.search-box:focus-within {
+
+    border-color:
+        rgba(104,119,255,0.6);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(104,119,255,0.08),
+        var(--shadow);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.search-icon {
+
+    font-size: 19px;
+
+    opacity: 0.65;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 16px;
+
+}
+
+
+.search-box input::placeholder {
+
+    color: #747b8c;
+
+}
+
+
+.search-box button {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--secondary);
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   Shortcuts
+========================= */
+
+.shortcuts {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 34px;
+
+    direction: ltr;
+
+    animation:
+        fadeUp 1s ease;
+
+}
+
+
+.shortcut-card {
+
+    width: 110px;
+
+    height: 105px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+    background: var(--glass);
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.25s,
+        background 0.25s,
+        border 0.25s;
+
+}
+
+
+.shortcut-card:hover {
+
+    transform:
+        translateY(-7px)
+        scale(1.02);
+
+    background:
+        var(--glass-hover);
+
+    border-color:
+        rgba(255,255,255,0.17);
+
+}
+
+
+.shortcut-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+}
+
+
+.shortcut-card span {
+
+    font-size: 13px;
+
+    color: #b3b8c5;
+
+}
+
+
+.google {
+
+    background:
+        rgba(66,133,244,0.15);
+
+}
+
+
+.youtube {
+
+    background:
+        rgba(255,0,0,0.13);
+
+}
+
+
+.github {
+
+    background:
+        rgba(255,255,255,0.10);
+
+}
+
+
+.add-shortcut {
+
+    border-style: dashed;
+
+}
+
+
+/* =========================
+   Weather
+========================= */
+
+.weather-card {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    left: 30px;
+
+    width: 180px;
+
+    padding: 18px 20px;
+
+    border-radius: 19px;
+
+    border: 1px solid var(--border);
+
+    background: var(--glass);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow);
+
+    animation:
+        slideLeft 0.8s ease;
+
+}
+
+
+.weather-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.weather-icon {
+
+    font-size: 26px;
+
+}
+
+
+.temperature {
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+}
+
+
+.location {
+
+    margin-top: 7px;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   Settings
+========================= */
+
+.settings-panel {
+
+    position: fixed;
+
+    top: 0;
+
+    right: -390px;
+
+    width: 390px;
+
+    height: 100vh;
+
+    padding: 30px;
+
+    background:
+        rgba(14,16,23,0.94);
+
+    border-left: 1px solid var(--border);
+
+    backdrop-filter: blur(28px);
+
+    z-index: 50;
+
+    transition:
+        right 0.35s ease;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.22) transparent;
+
+}
+
+.settings-panel::-webkit-scrollbar { width: 7px; }
+.settings-panel::-webkit-scrollbar-track { background: transparent; }
+.settings-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.22); border-radius: 10px; }
+.settings-panel::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.35); }
+
+
+.settings-panel.open {
+
+    right: 0;
+
+}
+
+
+.settings-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+}
+
+
+.settings-header h2 {
+
+    font-size: 23px;
+
+}
+
+
+.settings-header button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--glass);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   Setting Item
+========================= */
+
+.setting-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.setting-item strong {
+
+    display: block;
+
+}
+
+
+.setting-item small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--secondary);
+
+}
+
+
+/* =========================
+   Toggle
+========================= */
+
+.toggle {
+
+    width: 50px;
+
+    height: 28px;
+
+    padding: 3px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #343844;
+
+    cursor: pointer;
+
+}
+
+
+.toggle span {
+
+    display: block;
+
+    width: 22px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    transition: 0.25s;
+
+}
+
+
+.toggle.active {
+
+    background: var(--accent);
+
+}
+
+
+.toggle.active span {
+
+    transform:
+        translateX(-22px);
+
+}
+
+
+/* =========================
+   Setting Sections
+========================= */
+
+.setting-section {
+
+    margin-top: 28px;
+
+}
+
+
+.setting-section label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+
+    color: #dce0ea;
+
+}
+
+
+.location-input {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.location-input input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 43px;
+
+    padding: 0 12px;
+
+    border-radius: 11px;
+
+    border:
+        1px solid var(--border);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: white;
+
+}
+
+
+.location-input button {
+
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 0 15px;
+
+    background: var(--accent);
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   Background Options
+========================= */
+
+.background-options {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.bg-option {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 13px;
+
+    border:
+        2px solid transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    background:
+        #11151f;
+
+}
+
+
+.bg-option:nth-child(2) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #160d28,
+            #633cff
+        );
+
+}
+
+
+.bg-option:nth-child(3) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #07131f,
+            #1768a5
+        );
+
+}
+
+
+.bg-option:nth-child(4) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b0808,
+            #8c1c35
+        );
+
+}
+
+
+.bg-option.active {
+
+    border-color:
+        var(--accent);
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================
+   Performance Mode
+========================= */
+
+.performance-options { display: grid; gap: 10px; }
+
+.performance-option {
+    width: 100%; min-height: 70px; display: flex; align-items: center; gap: 11px;
+    padding: 11px 12px; border: 1px solid var(--border); border-radius: 14px;
+    background: rgba(255,255,255,0.035); color: var(--text); text-align: inherit;
+    cursor: pointer; font-family: inherit;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.performance-option:hover { background: var(--glass-hover); transform: translateY(-1px); }
+.performance-option.active { border-color: rgba(104,119,255,0.55); background: rgba(104,119,255,0.10); }
+.performance-option-icon { width:36px; height:36px; flex:0 0 36px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:rgba(255,255,255,0.07); font-size:18px; }
+.performance-option-text { min-width:0; flex:1; }
+.performance-option-text strong, .performance-option-text small { display:block; }
+.performance-option-text strong { font-size:14px; }
+.performance-option-text small { margin-top:4px; color:var(--secondary); font-size:11px; line-height:1.5; }
+.performance-check { width:22px; height:22px; flex:0 0 22px; display:flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid var(--border); color:transparent; font-family:Arial,sans-serif; font-size:13px; font-weight:700; }
+.performance-option.active .performance-check { background:var(--accent); border-color:var(--accent); color:white; }
+
+/* =========================
+   Eco / Low-End Mode
+========================= */
+body.eco-mode, body.eco-mode * { animation:none !important; transition:none !important; }
+body.eco-mode .background { background:var(--bg) !important; }
+body.eco-mode .background-overlay { display:none; }
+body.eco-mode .icon-btn, body.eco-mode .search-box, body.eco-mode .shortcut-card,
+body.eco-mode .weather-card, body.eco-mode .settings-panel, body.eco-mode .language-menu,
+body.eco-mode .modal { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; box-shadow:none !important; }
+body.eco-mode .clock, body.eco-mode .brand-name { text-shadow:none !important; }
+body.eco-mode .search-box:focus-within { transform:none; box-shadow:none; }
+body.eco-mode .shortcut-card:hover, body.eco-mode .icon-btn:hover,
+body.eco-mode .language-option:hover, body.eco-mode .performance-option:hover { transform:none; }
+body.eco-mode .modal-overlay { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+
+/* =========================
+   Reset
+========================= */
+
+.reset-btn {
+
+    width: 100%;
+
+    height: 45px;
+
+    margin-top: 35px;
+
+    border: 1px solid
+        rgba(255,93,108,0.25);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,93,108,0.08);
+
+    color: #ff8c98;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   Modal
+========================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(0,0,0,0.65);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        0.25s;
+
+    z-index: 100;
+
+}
+
+
+.modal-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal {
+
+    width: min(420px, 90%);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        #151821;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.5);
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        0.25s;
+
+}
+
+
+.modal-overlay.show .modal {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.modal-header button {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    background: var(--glass);
+
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+.modal input {
+
+    width: 100%;
+
+    height: 45px;
+
+    margin-bottom: 12px;
+
+    padding: 0 13px;
+
+    border-radius: 11px;
+
+    border:
+        1px solid var(--border);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: white;
+
+}
+
+
+.modal-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+}
+
+
+.modal-actions button {
+
+    flex: 1;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-btn {
+
+    background:
+        rgba(255,255,255,0.07);
+
+    color: white;
+
+}
+
+
+.save-btn {
+
+    background:
+        var(--accent);
+
+    color: white;
+
+}
+
+
+/* =========================
+   Toast
+========================= */
+
+.toast {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 30px;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    background:
+        #20242f;
+
+    color: white;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    pointer-events: none;
+
+    transition:
+        0.3s;
+
+    z-index: 200;
+
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes slideLeft {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =========================
+   Light Mode
+========================= */
+
+body.light {
+
+    --bg: #eef1f7;
+
+    --text: #171a22;
+
+    --secondary: #697080;
+
+    --glass:
+        rgba(255,255,255,0.55);
+
+    --glass-hover:
+        rgba(255,255,255,0.8);
+
+    --border:
+        rgba(0,0,0,0.08);
+
+}
+
+
+body.light .background {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(104,119,255,0.16),
+            transparent 35%
+        ),
+
+        #eef1f7;
+
+}
+
+
+body.light .settings-panel {
+
+    background:
+        rgba(245,247,251,0.94);
+
+}
+
+
+body.light .modal {
+
+    background:
+        #f7f8fb;
+
+}
+
+
+body.light .modal input,
+body.light .location-input input {
+
+    color: #171a22;
+
+}
+
+
+body.light .search-box input {
+
+    color: #171a22;
+
+}
+
+
+/* =========================
+   Background Themes
+========================= */
+
+body.bg-purple .background {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(139,76,255,0.25),
+            transparent 40%
+        ),
+
+        #0d0916;
+
+}
+
+
+body.bg-blue .background {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(0,130,255,0.23),
+            transparent 40%
+        ),
+
+        #071018;
+
+}
+
+
+body.bg-red .background {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,40,80,0.18),
+            transparent 40%
+        ),
+
+        #16090c;
+
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+    .brand {
+        left: 18px;
+        top: 20px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .header {
+
+        padding: 20px;
+
+    }
+
+
+    .main {
+
+        padding:
+            0 20px 80px;
+
+    }
+
+
+    .clock {
+
+        font-size: 70px;
+
+    }
+
+
+    .shortcuts {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .shortcut-card {
+
+        width: 82px;
+
+        height: 90px;
+
+    }
+
+
+    .weather-card {
+
+        left: 20px;
+
+        bottom: 20px;
+
+        width: 150px;
+
+    }
+
+
+    .settings-panel {
+
+        width: 100%;
+
+        right: -100%;
+
+    }
+
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: "Vazir", Tahoma, Arial, sans-serif;
+}
+
+/* ===============================
+   Delete Bookmark Button
+   =============================== */
+
+.custom-bookmark {
+    position: relative;
+}
+
+.delete-bookmark {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.45);
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    opacity: 0;
+    transform: scale(0.7);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+
+    z-index: 5;
+}
+
+/* نمایش دکمه هنگام Hover */
+.custom-bookmark:hover .delete-bookmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hover خود دکمه */
+.delete-bookmark:hover {
+    background: rgba(255, 70, 85, 0.9);
+    border-color: rgba(255, 120, 130, 0.9);
+    color: #ffffff;
+
+    transform: scale(1.08);
+}
+
+/* کلیک */
+.delete-bookmark:active {
+    transform: scale(0.92);
+}
+
+
+/* Website Bookmark Icons */
+
+.website-icon {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.website-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
+.website-icon span {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* ===============================
+   Language Selector
+   =============================== */
+
+.language-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.language-trigger {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255,255,255,0.055);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-align: inherit;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.language-trigger:hover,
+.language-trigger.open {
+    background: var(--glass-hover);
+    border-color: rgba(104,119,255,0.4);
+}
+
+.language-trigger:active {
+    transform: scale(0.99);
+}
+
+.language-chevron {
+    margin-inline-start: auto;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.language-trigger.open .language-chevron {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: rgba(20,23,31,0.96);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+}
+
+.language-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.language-option {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: "Vazir", Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    text-align: inherit;
+    transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.language-option:hover {
+    background: var(--glass-hover);
+    transform: translateX(-2px);
+}
+
+html[dir="ltr"] .language-option:hover {
+    transform: translateX(2px);
+}
+
+.language-option.active {
+    background: rgba(104,119,255,0.12);
+}
+
+.language-check {
+    margin-inline-start: auto;
+    opacity: 0;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+}
+
+.language-option.active .language-check {
+    opacity: 1;
+}
+
+body.light .language-trigger {
+    background: rgba(255,255,255,0.7);
+}
+
+body.light .language-menu {
+    background: rgba(248,249,252,0.97);
+}
+
+/* ===============================
+   Weather Description
+   =============================== */
+
+.weather-description {
+    margin-top: 3px;
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+/* ===============================
+   Language Direction
+   =============================== */
+
+html[dir="ltr"] .settings-panel {
+    right: auto;
+    left: -390px;
+    border-left: none;
+    border-right: 1px solid var(--border);
+}
+
+html[dir="ltr"] .settings-panel.open {
+    left: 0;
+}
+
+html[dir="ltr"] .brand {
+    left: auto;
+    right: 30px;
+}
+
+html[dir="ltr"] .header-actions {
+    direction: ltr;
+}
+
+@media (max-width: 700px) {
+    html[dir="ltr"] .settings-panel {
+        left: -100%;
+        right: auto;
+    }
+
+    html[dir="ltr"] .settings-panel.open {
+        left: 0;
+    }
+
+    html[dir="ltr"] .brand {
+        right: 18px;
+        left: auto;
+    }
+}
+
+body.light .settings-panel { scrollbar-color: rgba(0,0,0,0.20) transparent; }
+body.light .settings-panel::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.20); }
+body.light .settings-panel::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.30); }
